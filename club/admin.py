@@ -1,4 +1,5 @@
 from django.contrib import admin
-from .models import Event
 
-admin.site.register(Event)
+from club.models.event import Event, EventForm
+
+admin.site.register(Event, EventForm)
