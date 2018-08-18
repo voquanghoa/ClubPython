@@ -1,5 +1,6 @@
 from django.db import models
 
-# Create your models here.
-class Greeting(models.Model):
-    when = models.DateTimeField('date created', auto_now_add=True)
+class Event(models.Model):
+    description = models.CharField(max_length=2048)
+    created_time = models.DateField()
+    update_time = models.DateField()
