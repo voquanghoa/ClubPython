@@ -1,7 +1,6 @@
-from django.conf.urls import include, url
-
-from club.controllers import events
+from django.conf.urls import url
+from club.views.events import EventView
 
 urlpatterns = [
-    url(r'', events.events),
+    url(r'/events', EventView.as_view()),
 ]
