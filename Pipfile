@@ -12,6 +12,7 @@ django-filter = "*"
 "psycopg2-binary" = "*"
 "psycopg2" = "*"
 djangorestframework-jwt = "*"
+coreapi = "*"
 
 [requires]
 python_version = "3.7"
