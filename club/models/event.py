@@ -3,6 +3,8 @@ from django.contrib import admin
 from django.utils.datetime_safe import datetime
 from rest_framework import serializers
 
+from club.models.user import Profile
+
 
 class Event(models.Model):
     title = models.CharField(max_length=256, default='')
@@ -14,8 +16,14 @@ class Event(models.Model):
     created_time = models.DateTimeField()
     update_time = models.DateTimeField()
 
+    users = models.ManyToManyField(Profile)
+
     def __str__(self):
         return 'Event: {} {} {}'.format(self.id, self.title, self.description)
+
+    @property
+    def all_users(self):
+        return [profile.simple() for profile in self.users.all()]
 
 
 class EventForm(admin.ModelAdmin):
@@ -25,6 +33,8 @@ class EventForm(admin.ModelAdmin):
 
 
 class EventSerializer(serializers.ModelSerializer):
+
+    users = serializers.SerializerMethodField('get_all_users')
 
     def create(self, validated_data):
         event = Event(**validated_data)
@@ -47,6 +57,9 @@ class EventSerializer(serializers.ModelSerializer):
 
         return instance
 
+    def get_all_users(self, obj):
+        return obj.all_users
+
     class Meta:
         model = Event
-        fields = ['id', 'title', 'description', 'date_time', 'place', 'latitude', 'longitude']
+        fields = ['id', 'title', 'description', 'date_time', 'place', 'latitude', 'longitude', 'users']

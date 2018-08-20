@@ -3,7 +3,6 @@ from django.db import models
 from django.contrib import admin
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from django.utils.datetime_safe import datetime
 from rest_framework import serializers
 
 
@@ -31,6 +30,16 @@ class Profile(models.Model):
     @property
     def is_admin(self):
         return self.user.is_superuser
+
+    def simple(self):
+        return {
+            'id': self.id,
+            'name':self.name,
+            'avatar':self.avatar
+        }
+
+    def __str__(self):
+        return '{} {} {}'.format(self.id, self.user.username, self.name)
 
 
 class ProfileForm(admin.ModelAdmin):

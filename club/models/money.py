@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib import admin
-from django.utils.datetime_safe import datetime
 from rest_framework import serializers
 
 
@@ -8,7 +7,7 @@ class Money(models.Model):
     title = models.CharField(max_length=256, default='')
     description = models.CharField(max_length=2048, default='')
     amount = models.IntegerField(default=0)
-    time = models.DateTimeField(default=datetime.now())
+    time = models.DateTimeField(blank=True)
 
     def __str__(self):
         return 'Money: {} {} {}'.format(self.id, self.title, self.description)
