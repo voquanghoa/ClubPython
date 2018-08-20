@@ -14,6 +14,9 @@ class Event(models.Model):
     created_time = models.DateTimeField()
     update_time = models.DateTimeField()
 
+    def __str__(self):
+        return 'Event: {} {} {}'.format(self.id, self.title, self.description)
+
 
 class EventForm(admin.ModelAdmin):
     class Meta:
