@@ -1,5 +1,3 @@
-
-
 from django.db import models
 from django.contrib import admin
 from django.utils.datetime_safe import datetime
@@ -24,6 +22,28 @@ class EventForm(admin.ModelAdmin):
 
 
 class EventSerializer(serializers.ModelSerializer):
+
+    def create(self, validated_data):
+        event = Event(**validated_data)
+        event.created_time = datetime.now()
+        event.update_time = datetime.now()
+        event.save()
+        return event
+
+    def update(self, instance, validated_data):
+
+        instance.title = validated_data['title']
+        instance.description = validated_data['description']
+        instance.date_time = validated_data.get('date_time', instance.date_time)
+        instance.place = validated_data.get('place', instance.place)
+        instance.latitude = validated_data.get('latitude', instance.latitude)
+        instance.longitude = validated_data.get('longitude', instance.longitude)
+
+        instance.update_time = datetime.now()
+        instance.save()
+
+        return instance
+
     class Meta:
         model = Event
         fields = ['id', 'title', 'description', 'date_time', 'place', 'latitude', 'longitude']

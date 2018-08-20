@@ -4,6 +4,9 @@
     <list default="true" id="6e641af9-cbcc-4108-9d32-b755a358fc09" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/club/models/event.py" beforeDir="false" afterPath="$PROJECT_DIR$/club/models/event.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/club/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/club/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/club/views/events.py" beforeDir="false" afterPath="$PROJECT_DIR$/club/views/events.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gettingstarted/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/gettingstarted/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,11 +18,12 @@
     <session id="-50158838">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -29,7 +33,7 @@
           <entry key="gitignore" value="1" />
           <entry key="html" value="1" />
           <entry key="json" value="1" />
-          <entry key="py" value="61" />
+          <entry key="py" value="77" />
           <entry key="txt" value="1" />
           <entry key="windows" value="1" />
         </counts>
@@ -39,46 +43,49 @@
           <entry key="HTML" value="1" />
           <entry key="JSON" value="1" />
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="61" />
+          <entry key="Python" value="77" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="11" />
           <entry key="html" value="4" />
-          <entry key="py" value="963" />
+          <entry key="py" value="1525" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="4" />
           <entry key="PLAIN_TEXT" value="11" />
-          <entry key="Python" value="963" />
+          <entry key="Python" value="1525" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/club/urls.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/club/views/events.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+            <state relative-caret-position="180">
+              <caret line="12" column="25" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="25" />
               <folding>
-                <element signature="e#0#32#0" expanded="true" />
+                <element signature="e#0#69#0" expanded="true" />
+                <marker date="1534742361843" expanded="true" signature="371:738" ph="..." />
+                <marker date="1534742361843" expanded="true" signature="807:808" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/club/models/event.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+            <state relative-caret-position="300">
+              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
               <folding>
                 <element signature="e#2#30#0" expanded="true" />
+                <marker date="1534742235361" expanded="true" signature="1483:1584" ph="..." />
               </folding>
             </state>
           </provider>
@@ -103,6 +110,8 @@
       <find>app_name</find>
       <find>model</find>
       <find>authentication_classes</find>
+      <find>time</find>
+      <find>JWT_AUTH</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -113,19 +122,19 @@
       <list>
         <option value="$PROJECT_DIR$/gettingstarted/DisableCSRF.py" />
         <option value="$PROJECT_DIR$/club/models.py" />
-        <option value="$PROJECT_DIR$/club/admin.py" />
         <option value="$PROJECT_DIR$/club/views.py" />
         <option value="$PROJECT_DIR$/club/views/index.py" />
         <option value="$PROJECT_DIR$/club/controllers/events.py" />
         <option value="$PROJECT_DIR$/club/models/bases/BaseModel.py" />
         <option value="$PROJECT_DIR$/club/models/bases/base_model.py" />
-        <option value="$PROJECT_DIR$/club/views/events.py" />
         <option value="$PROJECT_DIR$/club/templates/page.html" />
-        <option value="$PROJECT_DIR$/gettingstarted/settings.py" />
         <option value="$PROJECT_DIR$/club/views/auth.py" />
         <option value="$PROJECT_DIR$/gettingstarted/urls.py" />
+        <option value="$PROJECT_DIR$/club/admin.py" />
+        <option value="$PROJECT_DIR$/gettingstarted/settings.py" />
         <option value="$PROJECT_DIR$/club/urls.py" />
         <option value="$PROJECT_DIR$/club/models/event.py" />
+        <option value="$PROJECT_DIR$/club/views/events.py" />
       </list>
     </option>
   </component>
@@ -177,18 +186,6 @@
               <item name="ClubPython" type="b2602c69:ProjectViewProjectNode" />
               <item name="ClubPython" type="462c0819:PsiDirectoryNode" />
               <item name="club" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ClubPython" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ClubPython" type="462c0819:PsiDirectoryNode" />
-              <item name="club" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ClubPython" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ClubPython" type="462c0819:PsiDirectoryNode" />
-              <item name="club" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ClubPython" type="b2602c69:ProjectViewProjectNode" />
@@ -267,7 +264,7 @@
     <frame x="25" y="23" width="1400" height="772" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2569956" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26067746" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -359,9 +356,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/club/controllers/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/club/controllers/__init__.py" />
     <entry file="file://$USER_HOME$/.virtualenvs/ClubPython-7TliOzru/lib/python3.7/site-packages/rest_framework/decorators.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -369,13 +364,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/club/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/club/views.py" />
     <entry file="file://$USER_HOME$/.virtualenvs/ClubPython-7TliOzru/lib/python3.7/site-packages/rest_framework/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1226">
@@ -383,67 +372,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/club/controllers/events.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/ClubPython-7TliOzru/lib/python3.7/site-packages/django/db/models/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="381" column="6" selection-start-line="381" selection-start-column="6" selection-end-line="381" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/club/models/bases/base_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/club/controllers/events.py" />
+    <entry file="file://$PROJECT_DIR$/club/models/bases/base_model.py" />
     <entry file="file://$PROJECT_DIR$/club/views/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/club/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/club/templates/page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/club/views/index.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gettingstarted/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="68" column="53" selection-start-line="68" selection-start-column="53" selection-end-line="68" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/club/templates/page.html" />
+    <entry file="file://$PROJECT_DIR$/club/views/index.py" />
     <entry file="file://$USER_HOME$/.virtualenvs/ClubPython-7TliOzru/lib/python3.7/site-packages/rest_framework/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -465,16 +400,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/club/views/auth.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/club/views/auth.py" />
     <entry file="file://$USER_HOME$/.virtualenvs/ClubPython-7TliOzru/lib/python3.7/site-packages/rest_framework_jwt/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
@@ -482,30 +408,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/ClubPython-7TliOzru/lib/python3.7/site-packages/django/db/models/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1263">
+          <caret line="60" column="6" selection-start-line="60" selection-start-column="6" selection-end-line="60" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gettingstarted/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="150" column="23" lean-forward="true" selection-start-line="150" selection-start-column="23" selection-end-line="150" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/club/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/ClubPython-7TliOzru/lib/python3.7/site-packages/rest_framework/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="170" column="8" selection-start-line="170" selection-start-column="8" selection-end-line="170" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gettingstarted/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        <state relative-caret-position="255">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/club/views/events.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <marker date="1534694987887" expanded="true" signature="266:272" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/club/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        <state relative-caret-position="75">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
@@ -514,10 +461,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/club/models/event.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+        <state relative-caret-position="300">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="e#2#30#0" expanded="true" />
+            <marker date="1534742235361" expanded="true" signature="1483:1584" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/club/views/events.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="25" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#69#0" expanded="true" />
+            <marker date="1534742361843" expanded="true" signature="371:738" ph="..." />
+            <marker date="1534742361843" expanded="true" signature="807:808" ph="..." />
           </folding>
         </state>
       </provider>
