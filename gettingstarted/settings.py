@@ -27,8 +27,6 @@ from rest_framework.authentication import SessionAuthentication, BasicAuthentica
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-
-
 class CsrfExemptSessionAuthentication(SessionAuthentication):
 
     def enforce_csrf(self, request):

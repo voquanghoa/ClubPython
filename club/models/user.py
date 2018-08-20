@@ -14,18 +14,13 @@ class Profile(models.Model):
     latitude = models.FloatField(default=0, blank=True)
     longitude = models.FloatField(default=0, blank=True)
 
-    @receiver(post_save, sender=User)
-    def create_user_profile(sender, instance, created, **kwargs):
-        if created:
-            Profile.objects.create(user=instance)
-
-    @receiver(post_save, sender=User)
-    def save_user_profile(sender, instance, **kwargs):
-        instance.profile.save()
-
     @property
     def email(self):
         return self.user.email
+
+    @property
+    def username(self):
+        return self.user.username
 
     @property
     def is_admin(self):
@@ -50,19 +45,30 @@ class ProfileForm(admin.ModelAdmin):
 
 class ProfileSerializer(serializers.ModelSerializer):
 
+    def validate(self, data):
+        username = self.initial_data.get('username')
+
+        if User.objects.filter(username=username).exists():
+            raise serializers.ValidationError("Username {0} has been taken".format(username))
+
+        return data
+
     def create(self, validated_data):
         profile = Profile()
         profile.user = User()
 
-        profile.user.password = validated_data.get('password')
-        profile.user.email = validated_data.get('email')
-        profile.user.username = validated_data.get('email')
+        profile.user.set_password(self.initial_data.get('password'))
+        profile.user.email = self.initial_data.get('email')
+        profile.user.username = self.initial_data.get('username')
         profile.user.is_active = True
+
         profile.name = validated_data.get('name')
         profile.avatar = validated_data.get('avatar', '')
         profile.latitude = validated_data.get('latitude', 0)
         profile.longitude = validated_data.get('longitude', 0)
 
+        profile.user.save()
+        profile.user_id = profile.user.id
         profile.save()
 
         return profile
@@ -77,4 +83,4 @@ class ProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Profile
-        fields = ['id', 'name', 'email', 'is_admin', 'avatar', 'latitude', 'longitude']
+        fields = ['id', 'name', 'email', 'is_admin', 'avatar', 'latitude', 'longitude', 'username']
