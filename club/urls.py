@@ -3,6 +3,7 @@ from django.conf.urls import url
 from club.views.event_actions import EventAction
 from club.views.events import EventView, EventList, EventPost
 from club.views.moneys import MoneyView, MoneyList
+from club.views.outcomes import OutcomeView, OutcomeList
 from club.views.users import UserList, UserDetail
 
 urlpatterns = [
@@ -17,5 +18,6 @@ urlpatterns = [
     url(r'/users$', UserList.as_view()),
     url(r'/users/(?P<pk>[0-9]+)$', UserDetail.as_view()),
 
-
+    url(r'/outcomes$', OutcomeList.as_view()),
+    url(r'/outcomes/(?P<pk>[0-9]+)$', OutcomeView.as_view()),
 ]

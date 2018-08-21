@@ -4,9 +4,10 @@ from django.http import JsonResponse, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
+from club.decorators.require_super_user import superuser_only
 from club.models.event import Event, EventSerializer
 from club.models.user import Profile
 
@@ -15,10 +16,9 @@ class EventList(APIView):
     permission_classes = (IsAuthenticated,)
 
     def get(self, request, event_type):
-
         profile = Profile.objects.get(user=request.user)
         events = Event.events
-        
+
         if not event_type == 'all':
             if event_type == 'past':
                 events = events.filter(date_time__lte=datetime.date.today())
@@ -37,6 +37,7 @@ class EventList(APIView):
 class EventPost(APIView):
     permission_classes = (IsAuthenticated,)
 
+    @superuser_only
     def post(self, request):
         serializer = EventSerializer(data=request.data)
 
@@ -58,6 +59,7 @@ class EventView(APIView):
         event = self.get_object(pk)
         return Response(EventSerializer(event).data)
 
+    @superuser_only
     def put(self, request, pk):
         event = self.get_object(pk)
         serializer = EventSerializer(event, data=request.data)
@@ -66,6 +68,7 @@ class EventView(APIView):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    @superuser_only
     def delete(self, request, pk):
         event = self.get_object(pk)
         event.delete()
