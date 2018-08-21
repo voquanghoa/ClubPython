@@ -1,17 +1,41 @@
-from django.http import Http404, JsonResponse, HttpResponseBadRequest
+import datetime
+
+from django.http import JsonResponse, HttpResponseBadRequest
+from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from club.models.event import Event, EventSerializer
+from club.models.user import Profile
 
 
 class EventList(APIView):
     permission_classes = (IsAuthenticated,)
 
-    def get(self, request):
-        return Response(EventSerializer(Event.objects.all(), many=True).data)
+    def get(self, request, event_type):
+
+        profile = Profile.objects.get(user=request.user)
+        events = Event.events
+        
+        if not event_type == 'all':
+            if event_type == 'past':
+                events = events.filter(date_time__lte=datetime.date.today())
+            else:
+                events = events.filter(date_time__gte=datetime.date.today())
+
+            if event_type == 'going':
+                events = events.filter(users__in=[profile])
+
+            if event_type == 'new':
+                events = events.exclude(users__in=[profile])
+
+        return Response(EventSerializer(events, many=True).data)
+
+
+class EventPost(APIView):
+    permission_classes = (IsAuthenticated,)
 
     def post(self, request):
         serializer = EventSerializer(data=request.data)
@@ -28,10 +52,7 @@ class EventView(APIView):
 
     @staticmethod
     def get_object(pk):
-        try:
-            return Event.objects.get(pk=pk)
-        except Event.DoesNotExist:
-            raise Http404
+        return get_object_or_404(Event.events.filter(pk=pk))
 
     def get(self, request, pk):
         event = self.get_object(pk)

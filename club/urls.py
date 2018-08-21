@@ -1,12 +1,14 @@
 from django.conf.urls import url
 
-from club.views.actions import Action
-from club.views.events import EventView, EventList
+from club.views.event_actions import EventAction
+from club.views.events import EventView, EventList, EventPost
 from club.views.moneys import MoneyView, MoneyList
 from club.views.users import UserList, UserDetail
 
 urlpatterns = [
-    url(r'/events$', EventList.as_view()),
+    url(r'/events$', EventPost.as_view()),
+    url(r'/events(?:/(?P<event_type>(all|new|going|past)))$', EventList.as_view()),
+    url(r'/events/action', EventAction.as_view()),
     url(r'/events/(?P<pk>[0-9]+)$', EventView.as_view()),
 
     url(r'/moneys$', MoneyList.as_view()),
@@ -15,5 +17,5 @@ urlpatterns = [
     url(r'/users$', UserList.as_view()),
     url(r'/users/(?P<pk>[0-9]+)$', UserDetail.as_view()),
 
-    url(r'/register$', Action.as_view())
+
 ]

@@ -9,7 +9,7 @@ from club.models.event import Event
 from club.models.user import Profile
 
 
-class Action(APIView):
+class EventAction(APIView):
     permission_classes = (IsAuthenticated,)
 
     @classmethod
@@ -40,8 +40,8 @@ class Action(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     def delete(self, request):
-        return Action.handle(request, 'DELETE')
+        return EventAction.handle(request, 'DELETE')
 
     def post(self, request):
-        return Action.handle(request, 'POST')
+        return EventAction.handle(request, 'POST')
 

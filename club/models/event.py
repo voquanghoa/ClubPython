@@ -18,6 +18,8 @@ class Event(models.Model):
 
     users = models.ManyToManyField(Profile)
 
+    events = models.Manager()
+
     def __str__(self):
         return 'Event: {} {} {}'.format(self.id, self.title, self.description)
 

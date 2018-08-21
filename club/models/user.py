@@ -29,6 +29,7 @@ class Profile(models.Model):
     def simple(self):
         return {
             'id': self.id,
+            'username': self.username,
             'name':self.name,
             'avatar':self.avatar
         }
