@@ -40,8 +40,14 @@ class EventAction(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     def delete(self, request):
+        """
+        Unregister an user from an event
+        """
         return EventAction.handle(request, 'DELETE')
 
     def post(self, request):
+        """
+        Register an user to an event
+        """
         return EventAction.handle(request, 'POST')
 

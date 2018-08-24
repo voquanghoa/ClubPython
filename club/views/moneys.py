@@ -11,9 +11,15 @@ class MoneyList(APIView):
     permission_classes = (IsAuthenticated,)
 
     def get(self, request):
+        """
+        Get all moneys
+        """
         return Response(MoneySerializer(Money.moneys.all(), many=True).data)
 
     def post(self, request):
+        """
+        Create a new money
+        """
         serializer = MoneySerializer(data=request.data)
 
         if serializer.is_valid():
@@ -34,10 +40,16 @@ class MoneyView(APIView):
             raise Http404
 
     def get(self, request, pk):
+        """
+        Get a money by id
+        """
         money = self.get_object(pk)
         return Response(MoneySerializer(money).data)
 
     def put(self, request, pk):
+        """
+        Update an money by id
+        """
         event = self.get_object(pk)
         serializer = MoneySerializer(event, data=request.data)
         if serializer.is_valid():
@@ -46,6 +58,9 @@ class MoneyView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk):
+        """
+        Delete a money
+        """
         money = self.get_object(pk)
         money.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)

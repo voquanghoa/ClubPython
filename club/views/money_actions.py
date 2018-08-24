@@ -39,7 +39,13 @@ class MoneyAction(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     def post(self, request):
+        """
+        Mark an user has already paid for a money
+        """
         self.handle(request, 'POST')
 
     def delete(self, request):
+        """
+        Mark an user has not paid for a money
+        """
         self.handle(request, 'DELETE')

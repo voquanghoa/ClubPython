@@ -16,6 +16,9 @@ class EventList(APIView):
 
     @has_profile
     def get(self, request, event_type):
+        """
+        Get all events by user and type
+        """
         profile = request.profile
         events = Event.events
 
@@ -39,6 +42,9 @@ class EventPost(APIView):
 
     @superuser_only
     def post(self, request):
+        """
+        Create a new event
+        """
         serializer = EventSerializer(data=request.data)
 
         if serializer.is_valid():
@@ -48,6 +54,9 @@ class EventPost(APIView):
             return HttpResponseBadRequest()
 
     def get(self, request):
+        """
+        Get all events
+        """
         events = Event.events
         return Response(EventSerializer(events, many=True).data)
 
@@ -60,11 +69,17 @@ class EventView(APIView):
         return get_object_or_404(Event.events.filter(pk=pk))
 
     def get(self, request, pk):
+        """
+        Get detail of an event
+        """
         event = self.get_object(pk)
         return Response(EventSerializer(event).data)
 
     @superuser_only
     def put(self, request, pk):
+        """
+        Update an event
+        """
         event = self.get_object(pk)
         serializer = EventSerializer(event, data=request.data)
         if serializer.is_valid():
@@ -74,6 +89,9 @@ class EventView(APIView):
 
     @superuser_only
     def delete(self, request, pk):
+        """
+        Delete an event
+        """
         event = self.get_object(pk)
         event.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)

@@ -1,18 +1,21 @@
 import datetime
 
-from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from club.decorators.require_super_user import has_profile
 from club.models.dashboar import Dashboard
 from club.models.event import Event
 from club.models.money import Money
+from club.utils.responses import model_response
 
 
 class Dashboards(APIView):
 
     @has_profile
     def get(self, request):
+        """
+        Get dashboard information of the current logged in user
+        """
         profile = request.profile
 
         events = Event.events.filter(date_time__gte=datetime.date.today())
@@ -30,4 +33,4 @@ class Dashboards(APIView):
 
         dashboard = Dashboard(new, going, next_event, unpaid)
 
-        return Response(dashboard.__dict__)
+        return model_response(dashboard)

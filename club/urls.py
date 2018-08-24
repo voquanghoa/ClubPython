@@ -5,7 +5,7 @@ from club.views.event_actions import EventAction
 from club.views.events import EventView, EventList, EventPost
 from club.views.moneys import MoneyView, MoneyList
 from club.views.outcomes import OutcomeView, OutcomeList
-from club.views.users import UserList, UserDetail
+from club.views.users import UserList, MeDetail
 
 urlpatterns = [
     url(r'/events$', EventPost.as_view()),
@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'/moneys/(?P<pk>[0-9]+)$', MoneyView.as_view()),
 
     url(r'/users$', UserList.as_view()),
-    url(r'/users/(?P<pk>[0-9]+)$', UserDetail.as_view()),
+    url(r'/users/me$', MeDetail.as_view()),
 
     url(r'/outcomes$', OutcomeList.as_view()),
     url(r'/outcomes/(?P<pk>[0-9]+)$', OutcomeView.as_view()),
