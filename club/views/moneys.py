@@ -1,11 +1,8 @@
-import coreapi
 from django.http import Http404, JsonResponse, HttpResponseBadRequest
 from rest_framework import status
-from rest_framework.decorators import api_view
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.schemas import AutoSchema
-from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from club.models.money import MoneySerializer, Money
 
@@ -14,7 +11,7 @@ class MoneyList(APIView):
     permission_classes = (IsAuthenticated,)
 
     def get(self, request):
-        return Response(MoneySerializer(Money.objects.all(), many=True).data)
+        return Response(MoneySerializer(Money.moneys.all(), many=True).data)
 
     def post(self, request):
         serializer = MoneySerializer(data=request.data)
@@ -49,12 +46,6 @@ class MoneyView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk):
-        """
-           Delete an existing Money
-           Parameters:
-              pk - a foo of type FooType to bar with.
-              hello
-        """
         money = self.get_object(pk)
         money.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)

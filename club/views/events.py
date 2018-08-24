@@ -7,16 +7,16 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from club.decorators.require_super_user import superuser_only
+from club.decorators.require_super_user import superuser_only, has_profile
 from club.models.event import Event, EventSerializer
-from club.models.user import Profile
 
 
 class EventList(APIView):
     permission_classes = (IsAuthenticated,)
 
+    @has_profile
     def get(self, request, event_type):
-        profile = Profile.objects.get(user=request.user)
+        profile = request.profile
         events = Event.events
 
         if not event_type == 'all':
@@ -46,6 +46,10 @@ class EventPost(APIView):
             return JsonResponse(serializer.data)
         else:
             return HttpResponseBadRequest()
+
+    def get(self, request):
+        events = Event.events
+        return Response(EventSerializer(events, many=True).data)
 
 
 class EventView(APIView):

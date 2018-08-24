@@ -1,5 +1,6 @@
 from django.conf.urls import url
 
+from club.views.dashboards import Dashboards
 from club.views.event_actions import EventAction
 from club.views.events import EventView, EventList, EventPost
 from club.views.moneys import MoneyView, MoneyList
@@ -20,4 +21,6 @@ urlpatterns = [
 
     url(r'/outcomes$', OutcomeList.as_view()),
     url(r'/outcomes/(?P<pk>[0-9]+)$', OutcomeView.as_view()),
+
+    url(r'/dashboard$', Dashboards.as_view()),
 ]

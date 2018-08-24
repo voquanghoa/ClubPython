@@ -27,6 +27,17 @@ class Event(models.Model):
     def all_users(self):
         return [profile.simple() for profile in self.users.all()]
 
+    def sample(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'description': self.description,
+            'date_time': self.date_time,
+            'place': self.place,
+            'latitude': self.latitude,
+            'longitude': self.longitude
+        }
+
 
 class EventForm(admin.ModelAdmin):
     class Meta:

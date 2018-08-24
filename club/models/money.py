@@ -30,8 +30,6 @@ class MoneyForm(admin.ModelAdmin):
 
 class MoneySerializer(serializers.ModelSerializer):
 
-    users = serializers.SerializerMethodField('get_all_users')
-
     def create(self, validated_data):
         money = Money(**validated_data)
         money.save()
@@ -50,4 +48,4 @@ class MoneySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Money
-        fields = ['id', 'title', 'description', 'amount', 'time', 'users']
+        fields = ['id', 'title', 'description', 'amount', 'time', 'all_users']
