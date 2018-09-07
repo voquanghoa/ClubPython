@@ -9,12 +9,14 @@ from club.models.user import Profile
 class Event(models.Model):
     title = models.CharField(max_length=256, default='')
     description = models.CharField(max_length=2048)
-    date_time = models.DateTimeField(default=datetime.now, blank=True)
+
+    start_time = models.DateTimeField(default=datetime.now, blank=True)
+    end_time = models.DateTimeField(default=datetime.now, blank=True)
+
     place = models.CharField(max_length=2048, default='')
     latitude = models.FloatField(default=0)
     longitude = models.FloatField(default=0)
     created_time = models.DateTimeField()
-    update_time = models.DateTimeField()
 
     users = models.ManyToManyField(Profile)
 
@@ -32,7 +34,8 @@ class Event(models.Model):
             'id': self.id,
             'title': self.title,
             'description': self.description,
-            'date_time': self.date_time,
+            'start_time': self.start_time,
+            'end_time': self.end_time,
             'place': self.place,
             'latitude': self.latitude,
             'longitude': self.longitude
@@ -42,7 +45,7 @@ class Event(models.Model):
 class EventForm(admin.ModelAdmin):
     class Meta:
         model = Event
-        fields = ['title', 'description', 'date_time', 'place', 'latitude', 'longitude']
+        fields = ['title', 'description', 'start_time', 'end_time', 'place', 'latitude', 'longitude']
 
 
 class EventSerializer(serializers.ModelSerializer):
@@ -52,7 +55,6 @@ class EventSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         event = Event(**validated_data)
         event.created_time = datetime.now()
-        event.update_time = datetime.now()
         event.save()
         return event
 
@@ -60,12 +62,14 @@ class EventSerializer(serializers.ModelSerializer):
 
         instance.title = validated_data['title']
         instance.description = validated_data['description']
-        instance.date_time = validated_data.get('date_time', instance.date_time)
+
+        instance.start_time = validated_data.get('start_time', instance.start_time)
+        instance.end_time = validated_data.get('end_time', instance.end_time)
+
         instance.place = validated_data.get('place', instance.place)
         instance.latitude = validated_data.get('latitude', instance.latitude)
         instance.longitude = validated_data.get('longitude', instance.longitude)
 
-        instance.update_time = datetime.now()
         instance.save()
 
         return instance
@@ -75,4 +79,4 @@ class EventSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Event
-        fields = ['id', 'title', 'description', 'date_time', 'place', 'latitude', 'longitude', 'users']
+        fields = ['id', 'title', 'description', 'start_time', 'end_time', 'place', 'latitude', 'longitude', 'users']
