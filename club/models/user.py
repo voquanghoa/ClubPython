@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.contrib import admin
+from django.utils.datetime_safe import datetime
 from rest_framework import serializers
 
 
@@ -11,6 +12,8 @@ class Profile(models.Model):
     avatar = models.TextField(max_length=1024, default='', blank=True)
     latitude = models.FloatField(default=0, blank=True)
     longitude = models.FloatField(default=0, blank=True)
+
+    location_time = models.DateTimeField(blank=True, default=datetime.now)
 
     @property
     def email(self):
@@ -39,7 +42,7 @@ class Profile(models.Model):
 class ProfileForm(admin.ModelAdmin):
     class Meta:
         model = Profile
-        fields = ['user', 'name', 'avatar', 'latitude', 'longitude']
+        fields = ['user', 'name', 'avatar', 'latitude', 'longitude', 'location_time']
 
 
 class ProfileSerializer(serializers.ModelSerializer):
@@ -68,6 +71,10 @@ class ProfileSerializer(serializers.ModelSerializer):
 
         profile.user.save()
         profile.user_id = profile.user.id
+
+        if profile.latitude > 0 or profile.longitude > 0:
+            profile.location_time = datetime.now()
+
         profile.save()
 
         return profile
@@ -77,8 +84,14 @@ class ProfileSerializer(serializers.ModelSerializer):
         instance.user = User.objects.get(pk=instance.user.pk)
 
         instance.avatar = validated_data.get('avatar', instance.avatar)
-        instance.latitude = validated_data.get('latitude', instance.latitude)
-        instance.longitude = validated_data.get('longitude', instance.longitude)
+
+        latitude = validated_data.get('latitude', 0)
+        longitude = validated_data.get('longitude', 0)
+
+        if latitude > 0 or longitude > 0:
+            instance.latitude = latitude
+            instance.longitude = longitude
+            instance.location_time = datetime.now()
 
         instance.save()
 
@@ -86,4 +99,4 @@ class ProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Profile
-        fields = ['id', 'name', 'email', 'is_admin', 'avatar', 'latitude', 'longitude', 'username']
+        fields = ['id', 'name', 'email', 'is_admin', 'avatar', 'latitude', 'longitude', 'location_time', 'username']
