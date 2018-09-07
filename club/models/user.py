@@ -75,7 +75,11 @@ class ProfileSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
 
         instance.user = User.objects.get(pk=instance.user.pk)
+
         instance.avatar = validated_data.get('avatar', instance.avatar)
+        instance.latitude = validated_data.get('latitude', instance.latitude)
+        instance.longitude = validated_data.get('longitude', instance.longitude)
+
         instance.save()
 
         return instance

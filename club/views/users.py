@@ -46,4 +46,4 @@ class MeDetail(APIView):
         """
         Get information of the current logged in user
         """
-        return object_response(request.profile.simple())
+        return object_response(ProfileSerializer(request.profile).data)
