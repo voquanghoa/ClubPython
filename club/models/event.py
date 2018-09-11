@@ -15,6 +15,7 @@ class Event(models.Model):
 
     place = models.CharField(max_length=2048, default='')
     latitude = models.FloatField(default=0)
+
     longitude = models.FloatField(default=0)
     created_time = models.DateTimeField()
 
@@ -56,6 +57,7 @@ class EventSerializer(serializers.ModelSerializer):
         event = Event(**validated_data)
         event.created_time = datetime.now()
         event.save()
+
         return event
 
     def update(self, instance, validated_data):

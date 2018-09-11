@@ -10,6 +10,7 @@ class Outcome(models.Model):
     description = models.CharField(max_length=2048)
     date_time = models.DateTimeField(default=datetime.now, blank=True)
     amount = models.IntegerField(blank=True, default=0)
+    items = models.TextField(default='[]')
 
     outcomes = models.Manager()
 
@@ -33,6 +34,7 @@ class OutcomeSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
 
         instance.title = validated_data['title']
+        instance.items = validated_data['items']
         instance.description = validated_data['description']
         instance.date_time = validated_data.get('date_time', instance.date_time)
         instance.amount = validated_data.get('amount', instance.amount)
@@ -43,4 +45,4 @@ class OutcomeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Outcome
-        fields = ['id', 'title', 'description', 'date_time', 'amount']
+        fields = ['id', 'title', 'description', 'date_time', 'amount', 'items']
